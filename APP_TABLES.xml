@@ -1,0 +1,24 @@
+<appTables>
+
+  <appTable displayName='Author' objPlural='authors' classPlural='Authors' objName='author' className='Author' dbName='AUTHOR' fileName='author'>
+    <appField displayName='Author Name' dbName='AUTHOR_NAME' classFieldName='AuthorName' objFieldName='authorName' fieldType='String' fieldSize='60' codeType='String' listFlag='yes' listOrder='1' blobNameFld='' scale='' format='%s' classPlural=''/>
+    <appField displayName='Author Image' dbName='AUTHOR_IMAGE' classFieldName='AuthorImage' objFieldName='authorImage' fieldType='Integer' fieldSize='1' codeType='Camera' listFlag='no' listOrder='2' blobNameFld='' scale='' format='%d' classPlural=''/>
+    <appField displayName='About Author' dbName='ABOUT_AUTHOR' classFieldName='AboutAuthor' objFieldName='aboutAuthor' fieldType='String' fieldSize='255' codeType='Clob' listFlag='yes' listOrder='3' blobNameFld='' scale='' format='%s' classPlural=''/>
+    <appField displayName='Books' dbName='BOOK' classFieldName='Book' objFieldName='book' fieldType='Book' fieldSize='0' codeType='One2ManyParent' listFlag='no' listOrder='4' blobNameFld='' scale='' format='' classPlural='Books'/>
+  </appTable>
+
+  <appTable displayName='Book' objPlural='books' classPlural='Books' objName='book' className='Book' dbName='BOOK' fileName='book'>
+    <appField displayName='Book Name' dbName='BOOK_NAME' classFieldName='BookName' objFieldName='bookName' fieldType='String' fieldSize='60' codeType='String' listFlag='yes' listOrder='1' blobNameFld='' scale='' format='%s' classPlural=''/>
+    <appField displayName='About Book' dbName='ABOUT_BOOK' classFieldName='AboutBook' objFieldName='aboutBook' fieldType='String' fieldSize='255' codeType='Clob' listFlag='yes' listOrder='2' blobNameFld='' scale='' format='%s' classPlural=''/>
+    <appField displayName='Author' dbName='AUTHOR' classFieldName='Author' objFieldName='author' fieldType='Long' fieldSize='0' codeType='One2ManyChild' listFlag='no' listOrder='3' blobNameFld='' scale='' format='' classPlural='Authors'/>
+    <appField displayName='Pages' dbName='PAGE' classFieldName='Page' objFieldName='page' fieldType='Page' fieldSize='0' codeType='One2ManyParent' listFlag='no' listOrder='4' blobNameFld='' scale='' format='' classPlural='Pages'/>
+  </appTable>
+
+  <appTable displayName='Page' objPlural='pages' classPlural='Pages' objName='page' className='Page' dbName='PAGE' fileName='page'>
+    <appField displayName='Page Title' dbName='PAGE_TITLE' classFieldName='PageTitle' objFieldName='pageTitle' fieldType='String' fieldSize='255' codeType='String' listFlag='yes' listOrder='1' blobNameFld='' scale='' format='%s' classPlural=''/>
+    <appField displayName='Page Image' dbName='PAGE_IMAGE' classFieldName='PageImage' objFieldName='pageImage' fieldType='Integer' fieldSize='1' codeType='Camera' listFlag='no' listOrder='2' blobNameFld='' scale='' format='%d' classPlural=''/>
+    <appField displayName='Page Text' dbName='PAGE_TEXT' classFieldName='PageText' objFieldName='pageText' fieldType='String' fieldSize='255' codeType='Clob' listFlag='yes' listOrder='3' blobNameFld='' scale='' format='%s' classPlural=''/>
+    <appField displayName='Book' dbName='BOOK' classFieldName='Book' objFieldName='book' fieldType='Long' fieldSize='0' codeType='One2ManyChild' listFlag='no' listOrder='4' blobNameFld='' scale='' format='' classPlural='Books'/>
+  </appTable>
+
+</appTables>
