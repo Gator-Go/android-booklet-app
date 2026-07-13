@@ -90,7 +90,7 @@ changes.add(newData)
 //
 // Sync file change
 // 
-def dir = "../booklet"
+def dir = "../Booklet"
 
 def extFiles ( theDir, changes ) {
 
