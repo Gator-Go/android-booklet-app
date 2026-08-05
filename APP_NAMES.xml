@@ -1,0 +1,16 @@
+<appNames>
+
+  <appName newName="booklet" oldName="xxxxx"/>
+  <appName newName="Booklet" oldName="Xxxxx"/>
+  <appName newName="BOOKLET" oldName="XXXXX"/>
+  <appName newName="Booklet" oldName="XDXDXDXDX"/>
+  <appName newName="BOOKLET_APP" oldName="XSXSX"/>
+  <appName newName="bookletApp" oldName="xsxsx"/>
+  <appPackage newPackage="com.swBuilder.booklet.app" oldPackage="ppp.ppp.ppp"/>
+  <appPackage newPackage="com/swBuilder/booklet/app" oldPackage="PPPsPPPsPPP"/>
+  <appPackage newPackage="com_swBuilder_booklet_app" oldPackage="PPP_PPP_PPP"/>
+  <appAuthor newAuthor="Ron Kanengieter" oldAuthor="Aaaaa"/>
+  <appAuthor newAuthor="gator@sw-builder.com" oldAuthor="aaaaa@ddddd"/>
+  <appCopyright newCopyright="Developed by sw-builder.com" oldCopyright="Lllll"/>
+
+</appNames>
