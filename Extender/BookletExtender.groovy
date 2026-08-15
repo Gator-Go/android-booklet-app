@@ -90,7 +90,7 @@ changes.add(newData)
 //
 // Sync file change
 // 
-def dir = "../Booklet"
+def dir = "../booklet"
 
 def extFiles ( theDir, changes ) {
 
@@ -129,4 +129,4 @@ extFiles ( dir, changes )
 
 
 //def strings = new File("./strings.xml").text
-//new File("../Booklet/app/src/main/res/values/strings.xml").write(strings)
+//new File("../booklet/app/src/main/res/values/strings.xml").write(strings)
