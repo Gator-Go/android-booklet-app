@@ -1,79 +1,87 @@
+/**
+ * This code extends the basic build to include new files and new code.
+ */
+
+class MyData {
+    String theFile
+    String extMarker
+    String srcInsert
+}
+
 def changes = []
 
-public class MyData {
+// ******** New code changes ********
 
-  def theFile = ""
+// none
 
-  def extMarker =
-"""
-"""
-  def srcInsert =
-"""
-"""
+// ******** Process code changes ********
+def normalize(String text) {
+    text.replaceAll(/\r\n|\r/, "\n")
 }
-MyData newData = new MyData()
 
+def processFiles(File dir, List<MyData> changes) {
+    dir.eachFileRecurse { file ->
+        if (!file.isFile()) return
 
+        changes.each { data ->
+            if (file.name == data.theFile) {
+                def oldText = normalize(file.text)
+                def marker  = normalize(data.extMarker)
+                def insert  = normalize(data.srcInsert)
+                def newText = oldText.replace(marker, insert)
 
-//
-// Sync file change
-// 
-def dir = "../booklet"
+                file.write(newText)
 
-def extFiles ( theDir, changes ) {
-
-   def fileList = new File(theDir).list().toList()
-
-   for ( i in fileList ) {
-
-      def inFile = theDir + "/" + i
-      def f1= new File(inFile)
-
-      MyData myData = new MyData();
-
-      if ( f1.isDirectory() ) {
-         extFiles ( inFile, changes )
-      } else {
-//println(i)
-        for (c in changes) {
-          MyData theData = c
-          if ( i.equals(theData.theFile) ) {
-            def oldFile = new File(inFile).text
-            def newMarker = theData.extMarker.replaceAll( "\\\n", "\\\r\\\n" )
-            def newSrc = theData.srcInsert.replaceAll( "\\\n", "\\\r\\\n" )
-            def newFile = oldFile.replace(newMarker, newSrc)
-            new File(inFile).write(newFile)
-            if (newFile.contains(newSrc) == false) { println(theData.theFile + " missing changes") }
-          }
-
+                if (!newText.contains(insert)) {
+                    println "${data.theFile} missing changes"
+                }
+            }
         }
-
-      } 
-   }
+    }
 }
 
-extFiles ( dir, changes )
+processFiles(new File("../booklet"), changes)
 
-def src = new File("./logo.png").newDataInputStream()
-def dst = new File("../booklet/app/src/main/res/drawable/logo.png").newDataOutputStream()
-dst << src
+// ******** Include new files ********
 
-def src1 = new File("./hdpi-logo.png").newDataInputStream()
-def dst1 = new File("../booklet/app/src/main/res/drawable-hdpi/logo.png").newDataOutputStream()
-dst1 << src1
+// Copy logo
+new File("./logo.png").withInputStream { src ->
+    new File("../booklet/app/src/main/res/drawable/logo.png").withOutputStream { dst ->
+        dst << src
+    }
+}
 
-def src2 = new File("./ldpi-logo.png").newDataInputStream()
-def dst2 = new File("../booklet/app/src/main/res/drawable-ldpi/logo.png").newDataOutputStream()
-dst2 << src2
+// Copy hdpi-logo
+new File("./hdpi-logo.png").withInputStream { src ->
+    new File("../booklet/app/src/main/res/drawable-hdpi/logo.png").withOutputStream { dst ->
+        dst << src
+    }
+}
 
-def src3 = new File("./mdpi-logo.png").newDataInputStream()
-def dst3 = new File("../booklet/app/src/main/res/drawable-mdpi/logo.png").newDataOutputStream()
-dst3 << src3
+// Copy ldpi-logo
+new File("./ldpi-logo.png").withInputStream { src ->
+    new File("../booklet/app/src/main/res/drawable-ldpi/logo.png").withOutputStream { dst ->
+        dst << src
+    }
+}
 
-def src4 = new File("./xhdpi-logo.png").newDataInputStream()
-def dst4 = new File("../booklet/app/src/main/res/drawable-xhdpi/logo.png").newDataOutputStream()
-dst4 << src4
+// Copy mdpi-logo
+new File("./mdpi-logo.png").withInputStream { src ->
+    new File("../booklet/app/src/main/res/drawable-mdpi/logo.png").withOutputStream { dst ->
+        dst << src
+    }
+}
 
-def src5 = new File("./xxhdpi-logo.png").newDataInputStream()
-def dst5 = new File("../booklet/app/src/main/res/drawable-xxhdpi/logo.png").newDataOutputStream()
-dst5 << src5
+// Copy xhdpi-logo
+new File("./xhdpi-logo.png").withInputStream { src ->
+    new File("../booklet/app/src/main/res/drawable-xhdpi/logo.png").withOutputStream { dst ->
+        dst << src
+    }
+}
+
+// Copy xxhdpi-logo
+new File("./xxhdpi-logo.png").withInputStream { src ->
+    new File("../booklet/app/src/main/res/drawable-xxhdpi/logo.png").withOutputStream { dst ->
+        dst << src
+    }
+}
