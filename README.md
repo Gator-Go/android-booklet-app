@@ -19,9 +19,10 @@ Expected sibling directories:
 cd ~/android/android-booklet-app
 git pull
 ./android-booklet-build.sh
+```
 
 ## Layout:
-
+```text
 android-booklet-app/
 ├── android-booklet-build.sh
 ├── Extender/
@@ -36,11 +37,13 @@ android-booklet-app/
     ├── APP_ENUMS.xml
     ├── APP_NAMES.xml
     └── APP_TABLES.xml
-
+```
 ## Note:
 
 The template/, build/, and booklet/ dirs appear after a build. They come from
 droid-builder.
 
 DroidBuilder.groovy is copied in from droid-builder at build time.
-Edit it in the builder repo, not here.
+
+BookletExtender.groovy performs functions unique to the booklet app such as deploying 
+the booklet logo images.
