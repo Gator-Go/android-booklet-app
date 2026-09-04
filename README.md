@@ -40,10 +40,12 @@ android-booklet-app/
 ```
 ## Note:
 
-The template/, build/, and booklet/ dirs appear after a build. They come from
-droid-builder.
+The template/ and build/ dirs appear after a build. They come from droid-builder.
 
 DroidBuilder.groovy is copied in from droid-builder at build time.
 
 BookletExtender.groovy performs functions unique to the booklet app such as deploying 
 the booklet logo images.
+
+The booklet/ dir appear after a build and is the build output and where
+the new app is created.
